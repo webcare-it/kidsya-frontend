@@ -198,7 +198,7 @@ const ActionSearchBarComponent = forwardRef<HTMLInputElement | null>(
                 })
               }
               className="w-full h-full flex items-center justify-center cursor-pointer">
-              <Search className="w-5 h-5 text-white" />
+              <Search className="w-5 h-5 text-primary-foreground" />
             </button>
           </div>
 
