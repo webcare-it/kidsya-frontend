@@ -68,7 +68,7 @@ export const CheckoutButton = ({
         ) : (
           <>
             <ClipboardCheck className="h-4 w-4 hidden md:block text-primary" />
-            <span className="text-primary text-[10px]">{"Checkout"}</span>
+            <span className="text-primary text-[10px]">Order now</span>
           </>
         )}
       </Button>
@@ -92,7 +92,7 @@ export const CheckoutButton = ({
       ) : (
         <>
           {style[type].icon}
-          {"Checkout"}
+          Order now
         </>
       )}
     </Button>

@@ -19,6 +19,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   getLocalStorage,
   removeCurrencySymbol,
+  removeLocalStorage,
   setLocalStorage,
 } from "@/helper";
 
@@ -31,6 +32,7 @@ export const OrderCompletePage = () => {
   const order = useMemo(() => (data?.invoice as InvoiceType) || {}, [data]);
 
   useEffect(() => {
+    removeLocalStorage("selected_shipping_method");
     if (!ip) {
       fetch("https://api.ipify.org?format=json")
         .then((res) => res?.json())

@@ -55,7 +55,9 @@ export const LandingPage = () => {
           <BannerSection info={info} />
           <ProductShowcaseSection info={info} />
 
-          {info?.regular_price && info?.discount_price && <PriceTicker />}
+          {info?.regular_price && info?.discount_price && (
+            <PriceTicker info={info} />
+          )}
 
           {info?.deadline && <DateCounter date={info?.deadline} />}
 

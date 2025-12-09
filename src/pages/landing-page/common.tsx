@@ -147,7 +147,7 @@ export const WhatOurCustomersSaySection = ({ info }: Props) => {
 
   return (
     <div>
-      <Title>{"customer reviews"}</Title>
+      <Title>Customer Reviews</Title>
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={16}
@@ -442,13 +442,13 @@ export const DateCounter = ({ date }: { date: string }) => {
   );
 };
 
-export const PriceTicker = () => {
+export const PriceTicker = ({ info }: Props) => {
   const [currentPriceIndex, setCurrentPriceIndex] = useState(0);
 
   const prices = [
     {
-      original: "৳1230",
-      discounted: "৳999",
+      original: `৳${info?.regular_price}`,
+      discounted: `৳${info?.discount_price}`,
       previousText: "Previous Price",
       offerText: "Offer Price",
     },
@@ -505,10 +505,9 @@ export const PriceTicker = () => {
             </motion.h2>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 z-10 relative">
               <div className="flex items-center gap-6">
-                {/* Original price with X animation */}
                 <div className="relative">
                   <motion.div
-                    className="line-through text-gray-300 text-4xl font-bold"
+                    className="line-through text-gray-300 text-3xl font-bold"
                     key={`original-${currentPriceIndex}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -571,7 +570,7 @@ export const PriceTicker = () => {
               <div className="flex items-center gap-6">
                 <div className="relative">
                   <motion.div
-                    className="text-white text-4xl md:text-5xl font-extrabold"
+                    className="text-white text-4xl font-extrabold"
                     key={`discounted-${currentPriceIndex}`}
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
