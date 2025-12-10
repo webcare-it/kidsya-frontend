@@ -107,8 +107,6 @@ export const VariantCard = ({
     }
   }, [selectedColor, selectedSize, product, quantity, setQuantity]);
 
-  console.log({ product, selectedSize, selectedColor });
-
   return (
     <>
       {/* {(selectedColor || selectedSize) && (

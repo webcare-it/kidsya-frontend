@@ -47,7 +47,7 @@ export const OrderCompletePage = () => {
         coupon: order?.coupon || "",
         tax: removeCurrencySymbol(order?.tax?.toString() || "0"),
         shipping: removeCurrencySymbol(order?.shipping_cost?.toString() || "0"),
-        value: removeCurrencySymbol(order?.grand_total?.toString() || "0") || 0,
+        value: removeCurrencySymbol(order?.subtotal?.toString() || "0") || 0,
         customer_type:
           (order?.customer_type?.toLowerCase() as "new" | "returning") || "new",
         items: order?.order_items?.map((item) => ({
