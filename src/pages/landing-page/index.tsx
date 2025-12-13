@@ -9,6 +9,7 @@ import {
   PriceTicker,
   ProductShowcaseSection,
   WhatOurCustomersSaySection,
+  VideoSection,
 } from "./common";
 import { motion } from "framer-motion";
 import { PackageX, Home, ArrowLeft, RefreshCw } from "lucide-react";
@@ -52,8 +53,11 @@ export const LandingPage = () => {
             <Title>{info?.title}</Title>
             <SubTitle>{info?.sub_title}</SubTitle>
           </div>
+
+          <VideoSection info={info} />
           <BannerSection info={info} />
-          <ProductShowcaseSection info={info} />
+
+          {info?.images?.length > 0 && <ProductShowcaseSection info={info} />}
 
           {info?.regular_price && info?.discount_price && (
             <PriceTicker info={info} />

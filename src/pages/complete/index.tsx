@@ -86,7 +86,7 @@ export const OrderCompletePage = () => {
       <>
         <SeoWrapper title={"Order Successful!"} />
         <BaseLayout isShowMegaMenu={false} isContainer={false}>
-          <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative">
             <div className="container mx-auto px-4 py-8">
               <div className="text-center py-12">
                 <Skeleton className="h-20 w-20 mx-auto rounded-full mb-6" />
@@ -95,6 +95,8 @@ export const OrderCompletePage = () => {
               </div>
               <OrderDetailsSkeleton />
             </div>
+
+            <FlowerAnimation />
           </div>
         </BaseLayout>
       </>
@@ -125,7 +127,7 @@ export const OrderCompletePage = () => {
     <>
       <SeoWrapper title={"Order Successful!"} />
       <BaseLayout isShowMegaMenu={false} isContainer={false}>
-        <div className="min-h-screen bg-gradient-to-br from-green-100 to-blue-100 dark:from-gray-900 dark:to-gray-800">
+        <div className="min-h-screen bg-gradient-to-br from-green-100 to-blue-100 dark:from-gray-900 dark:to-gray-800 relative">
           <div className="container mx-auto px-4 py-8">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -157,8 +159,32 @@ export const OrderCompletePage = () => {
 
             <OrderDetailsCard order={order} path="/track-order" />
           </div>
+
+          <FlowerAnimation />
         </div>
       </BaseLayout>
     </>
+  );
+};
+
+const FlowerAnimation = () => {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {[...Array(50)].map((_, i) => (
+        <img
+          key={i}
+          src="/flower.png"
+          alt="flower"
+          className="absolute w-10 h-10 animate-fall"
+          style={{
+            animationDuration: `${Math.random() * 5 + 3}s`,
+            animationDelay: `${Math.random() * 5}s`,
+            left: `${Math.random() * 100}%`,
+            top: `-${Math.random() * 20}vh`,
+            transform: `rotate(${Math.random() * 360}deg)`,
+          }}
+        />
+      ))}
+    </div>
   );
 };
