@@ -27,7 +27,7 @@ export const ProductInfo = ({ product, onVariantImageChange }: Props) => {
     product?.variants?.[0]?.variant_price_string ||
       `${product?.currency_symbol}${product?.calculable_price}` ||
       product?.main_price ||
-      "0"
+      "৳0"
   );
   const { modalRef, modalConfig, onHideModal, onShowModal } = useModal();
   const hasBrand = product?.brand?.name || product?.brand?.logo;
